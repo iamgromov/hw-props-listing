@@ -2,8 +2,10 @@ import data from '../data/etsy.json'
 import { ItemInterface } from '../interface/ItemInterface';
 import Item from './Item';
 
-const Listing = () => {
-  const items: ItemInterface[] = data.filter(item => item.state === 'active');
+function Listing() {
+  const stringify = JSON.stringify(data)
+  const dataParse = JSON.parse(stringify);
+  const items: ItemInterface[] = dataParse.filter((item: any) => item.state === 'active');
    
   return (
     <div className="item-list">
